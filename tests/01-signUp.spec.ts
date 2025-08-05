@@ -2,7 +2,11 @@ import { test, expect } from '@playwright/test';
 import SignUp from '../pom/SignUp';
 import { faker } from '@faker-js/faker'
 import BaseMethods from '../pom/BaseMethods';
+import path from 'path';
+import fs from 'fs';
 
+const filePath = path.resolve(__dirname, "../test-data.json");
+const testUser = JSON.parse(fs.readFileSync(filePath, "utf-8").trim());
 
 test.describe(('Sign Up'), () => {
   let signUp: SignUp;
@@ -20,10 +24,10 @@ test.describe(('Sign Up'), () => {
   })
 
   test('Positive - Success Sign Up', async () => {
-    await base.enterField(signUp.userName, userName);
-    await base.enterField(signUp.email, email);
-    await base.enterField(signUp.password, password);
-    await base.enterField(signUp.retypePassword, password);
+    await base.enterField(signUp.userName, testUser.userName);
+    await base.enterField(signUp.email, testUser.email);
+    await base.enterField(signUp.password, testUser.password);
+    await base.enterField(signUp.retypePassword, testUser.password);
     await signUp.clickRegisterAccount()
     await signUp.isSuccessSignUpMessageShown()
     await base.isAuthorizedUserShown(userName)

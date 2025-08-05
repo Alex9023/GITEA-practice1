@@ -4,7 +4,7 @@ import SignIn from "../pom/SignIn";
 import fs from "fs";
 import path from "path";
 
-const filePath = path.resolve(__dirname, "../testUser-data.json");
+const filePath = path.resolve(__dirname, "../test-data.json");
 const testUser = JSON.parse(fs.readFileSync(filePath, "utf-8").trim());
 
 test.describe("Sign In", async () => {
