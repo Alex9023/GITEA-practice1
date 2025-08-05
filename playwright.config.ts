@@ -29,7 +29,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.STAGING === '1' ? 'http://localhost:3000' : 'https://google.com',
+    baseURL: process.env.STAGING === '2' ? 'http://gitea:3000' : 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',

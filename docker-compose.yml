@@ -15,7 +15,7 @@ services:
     depends_on:
         - gitea
     environment:
-        STAGING: 1
+        STAGING: 2
     volumes:
         - ./playwright-report:/app/playwright-report
     command: >
