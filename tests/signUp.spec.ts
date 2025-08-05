@@ -19,7 +19,7 @@ test.describe(('Sign Up'), () => {
     await signUp.openPage()
   })
 
-  test('Success Sign Up', async () => {
+  test('Positive - Success Sign Up', async () => {
     await base.enterField(signUp.userName, userName);
     await base.enterField(signUp.email, email);
     await base.enterField(signUp.password, password);
@@ -29,17 +29,17 @@ test.describe(('Sign Up'), () => {
     await base.isAuthorizedUserShown(userName)
   })
 
-  test('Verify validation message by not matched passwords', async () => {
+  test('Negative - Verify validation message by not matched passwords', async () => {
     await base.enterField(signUp.userName, userName);
     await base.enterField(signUp.email, email);
     await base.enterField(signUp.password, password);
     await base.enterField(signUp.retypePassword, '123');
     await signUp.clickRegisterAccount()
-    await signUp.isErrorMessageShown(signUp.errorMessages.notMatchedPasswords)
+    await base.isErrorMessageShown(signUp.errorMessages.notMatchedPasswords)
   })
 
 
-  test('Verify required fields', async ({page}) => {
+  test('Negative - Verify required fields', async () => {
     const signUpFields = [
       signUp.userName,
       signUp.email,

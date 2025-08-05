@@ -45,10 +45,10 @@ export default class SignUp extends BasePage {
         await expect(this.successSignUpMessage).toHaveText(this.successMessages.successSignUp)
     }
 
-    async isErrorMessageShown(error: string) {
-        await expect(this.errorMessage).toBeVisible()
-        await expect(this.errorMessage).toHaveText(error)
-    }
+    // async isErrorMessageShown(error: string) {
+    //     await expect(this.errorMessage).toBeVisible()
+    //     await expect(this.errorMessage).toHaveText(error)
+    // }
 
     async isAuthorizedUserShown(userName: string) {
         await expect(this.authorizedUser).toHaveText(userName)
