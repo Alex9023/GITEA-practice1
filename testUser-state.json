@@ -1,0 +1,25 @@
+{
+  "cookies": [
+    {
+      "name": "i_like_gitea",
+      "value": "730d5f1efedbab84",
+      "domain": "localhost",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_csrf",
+      "value": "HqWi_slQ0xbDHuQCT_u8jVXDRJ86MTc1NDIzMTkyMTgwMDg0NDkxNw",
+      "domain": "localhost",
+      "path": "/",
+      "expires": 1754318321.80289,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}

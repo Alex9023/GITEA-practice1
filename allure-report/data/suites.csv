@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","30039","Verify validation message by not matched passwords","chromium","Sat Jul 19 13:19:53 EEST 2025","broken","Sat Jul 19 13:20:23 EEST 2025","Sign Up","signUp.spec.ts","",""
+"","30040","Verify required fields","chromium","Sat Jul 19 13:20:25 EEST 2025","broken","Sat Jul 19 13:20:55 EEST 2025","Sign Up","signUp.spec.ts","",""
+"","30037","Success Sign Up","chromium","Sat Jul 19 13:19:22 EEST 2025","broken","Sat Jul 19 13:19:52 EEST 2025","Sign Up","signUp.spec.ts","",""
