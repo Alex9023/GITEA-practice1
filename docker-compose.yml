@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 services:
   gitea:
@@ -20,5 +20,5 @@ services:
         - ./playwright-report:/app/playwright-report
     command: >
         sh -c "npx playwright install && npx playwright test" # Run Playwright tests
-    restart: "no"
+    restart: "never"
     
