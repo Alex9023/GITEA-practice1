@@ -20,5 +20,5 @@ services:
         - ./playwright-report:/app/playwright-report
     command: >
         sh -c "npx playwright install && npx playwright test" # Run Playwright tests
-    restart: "never"
+    restart: "no"
     
