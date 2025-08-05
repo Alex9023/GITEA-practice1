@@ -25,7 +25,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [['html', { outputFolder: 'playwright-report', open: 'never' }], ['allure-playwright']],
-  globalSetup: './global-setup',
+  globalSetup: require.resolve('./global-setup'),
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -39,8 +39,21 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'setup',
+      use: { ...devices['Desktop Chrome'] },
+      testMatch: /.*001-initialSetup.spec.ts/
+    },
+    {
+      name: 'signUp',
+      use: { ...devices['Desktop Chrome'] },
+      testMatch: /.*002-signUp.spec.ts/,
+      dependencies: ['setup']
+    },
+    {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      testMatch: /.*003-signIn.spec.ts/,
+      dependencies: ['signUp'],
     },
 
     // {

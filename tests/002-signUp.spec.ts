@@ -30,7 +30,7 @@ test.describe(('Sign Up'), () => {
     await base.enterField(signUp.retypePassword, testUser.password);
     await signUp.clickRegisterAccount()
     await signUp.isSuccessSignUpMessageShown()
-    await base.isAuthorizedUserShown(userName)
+    await base.isAuthorizedUserShown(testUser.userName)
   })
 
   test('Negative - Verify validation message by not matched passwords', async () => {

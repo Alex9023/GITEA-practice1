@@ -1,4 +1,4 @@
-import test from "@playwright/test";
+import test, { expect } from "@playwright/test";
 import BaseMethods from "../pom/BaseMethods";
 import SignIn from "../pom/SignIn";
 import fs from "fs";
@@ -21,7 +21,10 @@ test.describe("Sign In", async () => {
     await page.getByText("Sign In").click();
     await base.enterField(signIn.userName, testUser.userName);
     await base.enterField(signIn.password, testUser.password);
+    const authPromise = page.waitForResponse('/user/login')
     await signIn.clickSignInButton();
+    const auth = await authPromise
+     expect(auth.status()).toBe(303)
     await base.isAuthorizedUserShown(testUser.userName);
   });
 
