@@ -6,8 +6,9 @@ import path from "path";
 
 const filePath = path.resolve(__dirname, "../test-data.json");
 const testUser = JSON.parse(fs.readFileSync(filePath, "utf-8").trim());
+const authFile = path.join(__dirname, '../testUser-state.json');
 
-test.describe("Sign In", async () => {
+test.describe("Sign In", () => {
   let signIn: SignIn;
   let base: BaseMethods;
 
@@ -26,6 +27,7 @@ test.describe("Sign In", async () => {
     const auth = await authPromise
      expect(auth.status()).toBe(303)
     await base.isAuthorizedUserShown(testUser.userName);
+    await page.context().storageState({ path: authFile });
   });
 
   test("Negative - Denied Sign In with invalid credentials", async ({

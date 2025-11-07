@@ -50,10 +50,22 @@ export default defineConfig({
       dependencies: ['setup']
     },
     {
-      name: 'chromium',
+      name: 'signIn',
       use: { ...devices['Desktop Chrome'] },
       testMatch: /.*003-signIn.spec.ts/,
-      dependencies: ['signUp'],
+      dependencies: ['signUp']
+    },
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'],
+        storageState: 'testUser-state.json'
+       },
+      testIgnore:[
+        'tests/001-initialSetup.spec.ts',
+        'tests/002-signUp.spec.ts',
+        'tests/003-signIn.spec.ts'
+      ],
+      dependencies: ['signIn'],
     },
 
     // {

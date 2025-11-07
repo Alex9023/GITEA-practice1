@@ -23,14 +23,6 @@ export default class SignUp extends BasePage {
         await this.page.goto('/user/sign_up')
     }
 
-    async enterField(field: Locator, fieldData: string) {
-        await field.fill(fieldData)
-    }
-
-    async clearField(field: Locator) {
-        await field.clear()
-    }
-
     async isFieldErrorExist(field: Locator, error: string) {
         await expect(field).toHaveJSProperty('validity.valid', false)
         await expect(field).toHaveJSProperty('validationMessage', error)

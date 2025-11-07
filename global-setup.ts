@@ -4,7 +4,7 @@ import path from 'path'
 
 async function globalSetup() {
   const testUser = {
-     userName: faker.internet.userName() + '_' + Date.now(),
+     userName: faker.internet.username() + '_' + Date.now(),
     email: faker.internet.email(),
     password: faker.internet.password()
   };
